@@ -1,0 +1,91 @@
+================================================================================
+GUÍA DE USO - LISP NIVELACIÓN DIGITAL v2.0
+================================================================================
+
+PASO 1: PREPARAR ARCHIVO DE DATOS
+----------------------------------
+1. Exportar datos del nivel digital (archivo .BAK)
+2. Abrir el archivo .BAK con Excel
+3. ABRIR UN EXCEL NUEVO (libro en blanco)
+4. Copiar SOLO 2 columnas del archivo original:
+   - Columna 1: Códigos (A1, A2, A3...)
+   - Columna 2: Cotas (en centésimas de milímetro)
+5. Pegar las columnas en el Excel nuevo (columna A y B)
+6. IMPORTANTE: Guardar como → CSV UTF-8 (delimitado por comas)
+   * Esto generará un archivo .csv con separador punto y coma (;)
+   * Es el formato que reconoce el LISP
+
+NOTA SOBRE COTA0:
+- Puedes incluir o no la fila COTA0 (cota de referencia) según tu preferencia
+- El programa procesará todas las filas del archivo por igual
+- Si incluyes COTA0, se insertará como un texto más
+
+¿Por qué abrir Excel nuevo?
+- Evita problemas con celdas vacías o columnas ocultas
+- Garantiza formato limpio sin datos basura
+
+
+PASO 2: CARGAR EL LISP EN AUTOCAD
+----------------------------------
+1. Arrastra el .lsp al dibujo (nivel_digital_v2.lsp) .
+2. Verás mensaje: "LISP: Nivelación Digital v2.0 Cargado - Comando: ND"
+
+
+PASO 3: EJECUTAR EL COMANDO Y SELECCIONAR PRECISIÓN
+----------------------------------------------------
+1. Escribir en línea de comandos: ND (una vez aquí ya puedes seguir las instrucciones desde Autocad)
+
+2. SELECCIÓN DE DECIMALES:
+   El programa pregunta: "¿Cuántos decimales? [1/2/3/4/5]"
+   - 1 decimal  → 10,0 m
+   - 2 decimales → 10,00 m
+   - 3 decimales → 10,000 m (por defecto, recomendado para milímetros)
+   - 4 decimales → 10,0000 m (décimas de mm)
+   - 5 decimales → 10,00000 m (centésimas de mm, máxima precisión)
+
+   Pulsa ENTER para usar 3 decimales por defecto
+
+3. Se abrirá ventana para seleccionar archivo de datos → Seleccionar tu archivo .csv (mirar paso 1)
+
+4. El programa cargará los datos y mostrará: "X puntos cargados desde el archivo"
+
+
+PASO 4: DEFINIR ALTURA DEL TEXTO
+---------------------------------
+1. Marcar PRIMER PUNTO (referencia inicial)
+2. Marcar SEGUNDO PUNTO (verás una línea dinámica)
+3. La distancia entre ambos puntos = altura del texto
+4. El programa muestra: "Altura del texto: X.XXX"
+
+
+PASO 5: INSERTAR TEXTOS EN EL PLANO
+------------------------------------
+1. El programa mostrará el primer texto a insertar: [1/X] A1 : 9,990
+2. Hacer clic donde quieras colocar ese texto (inserción libre)
+3. El texto se insertará automáticamente
+4. Aparecerá el siguiente: [2/X] A2 : 9,990
+5. Repetir hasta completar todos los puntos
+6. Puedes presionar ESC en cualquier momento para cancelar
+
+
+PASO 6: AJUSTES FINALES (MANUAL)
+---------------------------------
+- Mover textos si es necesario (comando MOVE)
+- Girar textos si es necesario (comando ROTATE)
+- Los textos se insertan en la capa activa actual
+
+
+================================================================================
+NOTAS IMPORTANTES (para desarrollador)
+================================================================================
+
+✓ Los datos deben estar en centésimas de milímetro (100000 = 1 metro)
+✓ Las cotas se convierten automáticamente a metros
+✓ El redondeo se aplica según los decimales elegidos
+✓ Formato de salida: "Código : Cota" (ejemplo: A15 : 9,954)
+✓ Se usa coma decimal (no punto)
+✓ Los textos son tipo TEXT (no MTEXT)
+✓ Altura del texto es la misma para todos los puntos
+✓ Inserción secuencial: los textos se insertan en el orden del archivo
+✓ Puedes incluir o excluir COTA0 según tu preferencia
+
