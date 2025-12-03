@@ -1,0 +1,83 @@
+import os
+import requests
+import json
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+PAGE_ID = os.getenv("NOTION_PAGE_ID")
+
+HEADERS = {
+    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Content-Type": "application/json",
+    "Notion-Version": "2022-06-28"
+}
+
+def get_page_content():
+    """Retrieves the blocks (content) of the Notion page."""
+    if not PAGE_ID or PAGE_ID == "PUT_YOUR_PAGE_ID_HERE":
+        print("Error: NOTION_PAGE_ID is not set in .env")
+        return
+
+    url = f"https://api.notion.com/v1/blocks/{PAGE_ID}/children"
+    response = requests.get(url, headers=HEADERS)
+    
+    if response.status_code == 200:
+        data = response.json()
+        print("--- Page Content ---")
+        for block in data["results"]:
+            if block["type"] == "paragraph":
+                text = block["paragraph"]["rich_text"]
+                if text:
+                    print(f"- {text[0]['plain_text']}")
+    else:
+        print(f"Error fetching page: {response.status_code}")
+        print(response.text)
+
+def add_update(text):
+    """Adds a new paragraph block to the page."""
+    if not PAGE_ID or PAGE_ID == "PUT_YOUR_PAGE_ID_HERE":
+        print("Error: NOTION_PAGE_ID is not set in .env")
+        return
+
+    url = f"https://api.notion.com/v1/blocks/{PAGE_ID}/children"
+    data = {
+        "children": [
+            {
+                "object": "block",
+                "type": "paragraph",
+                "paragraph": {
+                    "rich_text": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": text
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    
+    response = requests.patch(url, headers=HEADERS, json=data)
+    if response.status_code == 200:
+        print("Successfully added update to Notion!")
+    else:
+        print(f"Error adding update: {response.status_code}")
+        print(response.text)
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1:
+        command = sys.argv[1]
+        if command == "read":
+            get_page_content()
+        elif command == "write" and len(sys.argv) > 2:
+            add_update(" ".join(sys.argv[2:]))
+        else:
+            print("Usage: python sync_notion.py [read|write 'Your message']")
+    else:
+        print("Usage: python sync_notion.py [read|write 'Your message']")
