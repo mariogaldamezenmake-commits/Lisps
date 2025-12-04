@@ -8,7 +8,7 @@
 ;; - Corrige bugs: elimina lineas de referencia, explota bloque final
 ;; ============================================================
 
-(defun c:EncajarPlanos (/ *error* old_osmode old_clayer
+(defun c:EncajarPlanos2 (/ *error* old_osmode old_clayer
                           origen_ss target_ss blk_name target_ent
                           p1_source p1_dest p2_source p2_dest
                           line1 line2 explosion_count max_explosions
@@ -264,6 +264,6 @@
 
 (princ "\n============================================")
 (princ "\n  ENCAJAR PLANOS v2.0 cargado")
-(princ "\n  Escriba 'EncajarPlanos' para iniciar")
+(princ "\n  Escriba 'EncajarPlanos2' para iniciar")
 (princ "\n============================================")
 (princ)
