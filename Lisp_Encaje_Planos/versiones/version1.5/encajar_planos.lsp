@@ -78,7 +78,7 @@
   ;; Command: ALIGN
   ;; We confirm "Y" for scaling to ensure "el plano origen siempre manda".
   ;; This treats the origin points as the master scale.
-  (command "_.ALIGN" target_ent "" p1_source p1_dest p2_source p2_dest "" "Y")
+  (command "_.ALIGN" target_ent "" p1_source p1_dest p2_source p2_dest "" "_Yes")
 
   ;; Restore settings
   (setvar "OSMODE" old_osmode)
