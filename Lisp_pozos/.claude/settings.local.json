@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(move PRIMERA_PASADA.txt caso1 )",
+      "Bash(move SEGUNDA_PASADA.txt caso1 )",
+      "Bash(move:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

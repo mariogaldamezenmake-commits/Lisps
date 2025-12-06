@@ -1,0 +1,122 @@
+================================================================================
+                    CROQUIS PARA DIBUJO EN AUTOCAD - CASO 2
+================================================================================
+
+Vista en planta - Red de pluviales radial
+Escala orientativa - Usar coordenadas reales de PRIMERA_PASADA_2.txt
+
+--------------------------------------------------------------------------------
+LEYENDA:
+--------------------------------------------------------------------------------
+    (O)     = Pozo (círculo)
+    ═══     = Colector radial (Ø40cm)
+    >       = Sentido de flujo (hacia el centro)
+
+--------------------------------------------------------------------------------
+ESQUEMA DE LA RED:
+--------------------------------------------------------------------------------
+
+                            (P003)
+                              ║
+                              ↓
+        (P002) ═══> (P001) <═══ (P004)
+                     ║ ║
+                     ↓ ↓
+                (P007) (P005)
+
+                    (P006)
+
+TOPOLOGÍA:
+- P001: POZO CENTRAL (colector) - Recibe de 6 pozos periféricos
+- P002-P007: POZOS PERIFÉRICOS - Cada uno con 1 tubo hacia P001
+
+--------------------------------------------------------------------------------
+DETALLES POR POZO:
+--------------------------------------------------------------------------------
+
+┌─────────┬────────────┬──────────────────────────────────────────────┐
+│  POZO   │   TUBOS    │              DESCRIPCIÓN                     │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P001   │     6      │  POZO CENTRAL COLECTOR                       │
+│         │            │  - 6 tubos colector salida (radiales)        │
+│         │            │  - Distribuye hacia pozos periféricos        │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P002   │     1      │  POZO PERIFÉRICO (OESTE)                     │
+│         │            │  - 1 tubo colector entrada → P001            │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P003   │     1      │  POZO PERIFÉRICO (NOROESTE)                  │
+│         │            │  - 1 tubo colector entrada → P001            │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P004   │     1      │  POZO PERIFÉRICO (NORESTE)                   │
+│         │            │  - 1 tubo colector entrada → P001            │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P005   │     1      │  POZO PERIFÉRICO (ESTE)                      │
+│         │            │  - 1 tubo colector entrada → P001            │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P006   │     1      │  POZO PERIFÉRICO (SURESTE)                   │
+│         │            │  - 1 tubo colector entrada → P001            │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P007   │     1      │  POZO PERIFÉRICO (SUROESTE)                  │
+│         │            │  - 1 tubo colector entrada → P001            │
+└─────────┴────────────┴──────────────────────────────────────────────┘
+
+--------------------------------------------------------------------------------
+INSTRUCCIONES PARA AUTOCAD:
+--------------------------------------------------------------------------------
+
+1. IMPORTAR COORDENADAS (PRIMERA_PASADA_2.txt):
+   - Dibujar círculos en las coordenadas X,Y de cada pozo
+   - Usar Z para las cotas (importante para 3D)
+
+2. DIBUJAR COLECTORES RADIALES (SEGUNDA_PASADA_2.txt):
+   - 6 Polilíneas 3D desde cada pozo periférico hacia P001 (centro)
+   - P002→P001, P003→P001, P004→P001, P005→P001, P006→P001, P007→P001
+   - Diámetro: Ø40cm (todos los colectores)
+   - Ajustar cotas Z en extremos según PROF_TUBO
+
+3. INSERTAR BLOQUES POZO:
+   - En cada círculo insertar bloque "POZO" o "LA"
+   - Rellenar atributos según SEGUNDA_PASADA_2.txt
+   - P001 tendrá 6 bloques (uno por cada tubo radial)
+   - P002-P007 tendrán 1 bloque cada uno
+
+--------------------------------------------------------------------------------
+DATOS PARA POLILÍNEAS 3D (Colectores radiales Ø40cm):
+--------------------------------------------------------------------------------
+
+Tramo P002→P001 (OESTE):
+  Inicio: X=725470.00, Y=4372200.00, Z=108.25 (cota_tapa 109.85 - prof 1.60)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+Tramo P003→P001 (NOROESTE):
+  Inicio: X=725485.00, Y=4372226.00, Z=108.20 (cota_tapa 110.10 - prof 1.90)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+Tramo P004→P001 (NORESTE):
+  Inicio: X=725515.00, Y=4372226.00, Z=108.25 (cota_tapa 110.45 - prof 2.20)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+Tramo P005→P001 (ESTE):
+  Inicio: X=725530.00, Y=4372200.00, Z=108.20 (cota_tapa 110.70 - prof 2.50)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+Tramo P006→P001 (SURESTE):
+  Inicio: X=725515.00, Y=4372174.00, Z=108.20 (cota_tapa 109.50 - prof 1.30)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+Tramo P007→P001 (SUROESTE):
+  Inicio: X=725485.00, Y=4372174.00, Z=108.20 (cota_tapa 109.95 - prof 1.75)
+  Fin:    X=725500.00, Y=4372200.00, Z=107.95 (cota_tapa 110.25 - prof 2.30)
+
+--------------------------------------------------------------------------------
+NOTAS:
+--------------------------------------------------------------------------------
+
+- Topología RADIAL: Todos los pozos periféricos drenan hacia P001 (centro)
+- Red tipo PLUVIAL (aguas de lluvia)
+- Todos los tubos con diámetro Ø40cm
+- Los 6 tubos del pozo central P001 son colector_salida
+- Los tubos de pozos periféricos son colector_entrada
+- Sistema simétrico con pozo central colector
+
+================================================================================

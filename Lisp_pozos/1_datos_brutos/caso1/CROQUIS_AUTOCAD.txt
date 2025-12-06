@@ -1,0 +1,116 @@
+================================================================================
+                    CROQUIS PARA DIBUJO EN AUTOCAD
+================================================================================
+
+Vista en planta - Red de saneamiento
+Escala orientativa - Usar coordenadas reales de PRIMERA_PASADA.txt
+
+--------------------------------------------------------------------------------
+LEYENDA:
+--------------------------------------------------------------------------------
+    (O)     = Pozo (círculo)
+    ═══     = Colector principal (Ø30cm)
+    ───     = Acometida (Ø20cm)
+    >       = Sentido de flujo
+
+
+--------------------------------------------------------------------------------
+ESQUEMA DE LA RED:
+--------------------------------------------------------------------------------
+
+
+                                    ───  Acometida 1 (Ø20cm)
+                                   /
+                              (P003)
+    (P001) ═══> (P002) ═══>      |      ═══> (P004) ═══> (P005)
+   ARRANQUE                       |                         |  \
+                                  |                         |   ───  Acometida 2 (Ø20cm)
+                           Acometida                        |
+                           (Ø20cm)                   Acometida 3 (Ø20cm)
+
+
+
+--------------------------------------------------------------------------------
+DETALLES POR POZO:
+--------------------------------------------------------------------------------
+
+┌─────────┬────────────┬──────────────────────────────────────────────┐
+│  POZO   │   TUBOS    │              DESCRIPCIÓN                     │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P001   │     1      │  POZO DE ARRANQUE                            │
+│         │            │  - 1 tubo colector salida → P002             │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P002   │     2      │  POZO INTERMEDIO                             │
+│         │            │  - 1 tubo colector entrada ← P001            │
+│         │            │  - 1 tubo colector salida → P003             │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P003   │     3      │  POZO CON ACOMETIDA                          │
+│         │            │  - 1 tubo colector entrada ← P002            │
+│         │            │  - 1 tubo colector salida → P004             │
+│         │            │  - 1 acometida Ø20cm (lateral)               │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P004   │     2      │  POZO INTERMEDIO                             │
+│         │            │  - 1 tubo colector entrada ← P003            │
+│         │            │  - 1 tubo colector salida → P005             │
+├─────────┼────────────┼──────────────────────────────────────────────┤
+│  P005   │     4      │  POZO FINAL CON ACOMETIDAS                   │
+│         │            │  - 1 tubo colector entrada ← P004            │
+│         │            │  - 1 tubo colector salida (¿vertido final?)  │
+│         │            │  - 2 acometidas Ø20cm (laterales)            │
+└─────────┴────────────┴──────────────────────────────────────────────┘
+
+
+--------------------------------------------------------------------------------
+INSTRUCCIONES PARA AUTOCAD:
+--------------------------------------------------------------------------------
+
+1. IMPORTAR COORDENADAS (PRIMERA_PASADA.txt):
+   - Dibujar círculos en las coordenadas X,Y de cada pozo
+   - Usar Z para las cotas (importante para 3D)
+
+2. DIBUJAR COLECTORES PRINCIPALES (SEGUNDA_PASADA.txt):
+   - Polilíneas 3D entre pozos consecutivos: P001→P002→P003→P004→P005
+   - Diámetro: Ø30cm (colector principal)
+   - Ajustar cotas Z en extremos según PROF_TUBO
+
+3. DIBUJAR ACOMETIDAS:
+   - Desde P003: 1 línea lateral (Ø20cm)
+   - Desde P005: 2 líneas laterales (Ø20cm)
+   - Dirección de acometidas: a criterio (no medida en campo)
+
+4. INSERTAR BLOQUES POZO:
+   - En cada círculo insertar bloque "POZO"
+   - Rellenar atributos según SEGUNDA_PASADA.txt
+
+
+--------------------------------------------------------------------------------
+DATOS PARA POLILÍNEAS 3D (Colector principal Ø30cm):
+--------------------------------------------------------------------------------
+
+Tramo P001→P002:
+  Inicio: X=725432.15, Y=4372156.82, Z=106.75  (cota_tapa 108.45 - prof 1.70)
+  Fin:    X=725458.23, Y=4372168.91, Z=106.22  (cota_tapa 108.12 - prof 1.90)
+
+Tramo P002→P003:
+  Inicio: X=725458.23, Y=4372168.91, Z=106.12  (cota_tapa 108.12 - prof 2.00)
+  Fin:    X=725484.67, Y=4372181.34, Z=105.58  (cota_tapa 107.78 - prof 2.20)
+
+Tramo P003→P004:
+  Inicio: X=725484.67, Y=4372181.34, Z=105.48  (cota_tapa 107.78 - prof 2.30)
+  Fin:    X=725511.89, Y=4372194.12, Z=104.92  (cota_tapa 107.42 - prof 2.50)
+
+Tramo P004→P005:
+  Inicio: X=725511.89, Y=4372194.12, Z=104.82  (cota_tapa 107.42 - prof 2.60)
+  Fin:    X=725539.34, Y=4372206.88, Z=104.28  (cota_tapa 107.08 - prof 2.80)
+
+
+--------------------------------------------------------------------------------
+NOTAS:
+--------------------------------------------------------------------------------
+
+- El colector principal tiene pendiente descendente continua (flujo por gravedad)
+- Las acometidas son conexiones laterales (no están en el croquis de campo)
+- La dirección exacta de acometidas se decide en gabinete según espacio
+- P005 tiene un tubo "colector_salida" que podría ser el vertido final
+
+================================================================================

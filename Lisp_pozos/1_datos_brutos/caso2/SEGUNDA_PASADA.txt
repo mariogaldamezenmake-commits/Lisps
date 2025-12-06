@@ -1,0 +1,12 @@
+P001,pluvial,circular,80,2.50,1,6,colector_salida,40,2.30,20241106,MGR
+P001,pluvial,circular,80,2.50,2,6,colector_salida,40,2.30,20241106,MGR
+P001,pluvial,circular,80,2.50,3,6,colector_salida,40,2.30,20241106,MGR
+P001,pluvial,circular,80,2.50,4,6,colector_salida,40,2.30,20241106,MGR
+P001,pluvial,circular,80,2.50,5,6,colector_salida,40,2.30,20241106,MGR
+P001,pluvial,circular,80,2.50,6,6,colector_salida,40,2.30,20241106,MGR
+P002,pluvial,circular,60,1.80,1,1,colector_entrada,40,1.60,20241106,MGR
+P003,pluvial,circular,60,2.10,1,1,colector_entrada,40,1.90,20241106,MGR
+P004,pluvial,circular,60,2.40,1,1,colector_entrada,40,2.20,20241106,MGR
+P005,pluvial,circular,60,2.70,1,1,colector_entrada,40,2.50,20241106,MGR
+P006,pluvial,circular,60,1.50,1,1,colector_entrada,40,1.30,20241106,MGR
+P007,pluvial,circular,60,1.95,1,1,colector_entrada,40,1.75,20241106,MGR
