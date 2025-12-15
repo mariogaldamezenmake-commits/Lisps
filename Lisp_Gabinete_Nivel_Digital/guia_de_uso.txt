@@ -5,8 +5,8 @@ GUÍA DE USO - LISP NIVELACIÓN DIGITAL v2.0
 PASO 1: PREPARAR ARCHIVO DE DATOS
 ----------------------------------
 1. Exportar datos del nivel digital (archivo .BAK)
-2. Abrir el archivo .BAK con Excel
-3. ABRIR UN EXCEL NUEVO (libro en blanco)
+2. Abrir el archivo y copiar los datos todos en excel.
+3. Darle a texto en columnas en el apartado datos
 4. Copiar SOLO 2 columnas del archivo original:
    - Columna 1: Códigos (A1, A2, A3...)
    - Columna 2: Cotas (en centésimas de milímetro)
