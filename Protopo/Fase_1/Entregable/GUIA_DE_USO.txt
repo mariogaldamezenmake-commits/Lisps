@@ -1,0 +1,32 @@
+GUIA DE USO: PROCESADOR TOPOGRAFICO
+===================================
+
+Esta herramienta sirve para añadir automáticamente la letra 'C' (Comienzo) al inicio de las líneas en tus ficheros de puntos, respetando el formato y las 'F' (Fin) que ya hayas puesto.
+
+INSTRUCCIONES RAPIDAS
+---------------------
+1. Copia el archivo "procesar_topografia.exe" a la carpeta donde tengas tus trabajos.
+2. ARRASTRA tu archivo de puntos (TXT o CSV) y SUELTALO encima del icono de "procesar_topografia.exe".
+3. Aparecerá una ventana negra procesando y se cerrará sola.
+4. Se habrá creado un archivo nuevo terminado en "_proc.txt" (ej: "obra1_proc.txt") con los códigos corregidos.
+
+COMO FUNCIONA
+-------------
+El programa lee la última columna del fichero (formato "Contador & Código", ej: 3&Muro1F).
+
+1. Detecta qué línea es ignorando el número delante del '&'.
+2. Si el código cambia respecto al punto anterior Y continua en el siguiente, le añade una 'C'.
+3. Si el punto ya tiene 'F', la deja tal cual.
+4. Si es un punto suelto (árbol, farola, etc.) que no continua, no le añade nada.
+
+EJEMPLO
+-------
+Antes:
+... , 1&Muro1
+... , 2&Muro1
+... , 3&Muro1F
+
+Después:
+... , 1&Muro1C   <-- Le pone la C al primero
+... , 2&Muro1
+... , 3&Muro1F   <-- Respeta el final

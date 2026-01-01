@@ -1,0 +1,14 @@
+Nada,Nada,Nada,Nada,Nada,Nada,CodigoRaroSinAmpersand
+100,1,0,0,0,0,00
+100,2,0,0,0,0,
+100,3,0,0,0,0,SoloTexto
+100,4,0,0,0,0,Texto&Con&Muchos&Ampersands
+100,5,0,0,0,0,1&100F&PeroConFEnMedio
+100,6,0,0,0,0,1&Minusculas_
+100,7,0,0,0,0,1&10000000000000000000000000000000000000
+100,8,0,0,0,0,1&-100
+100,9,0,0,0,0,EspaciosAntesDelCodigo
+100,10,0,0,0,0,CodigoConEspacios AlFinal
+,,,,,,CampoVacio
+#Comentario o linea basura
+100,11,0,0,0,0,1&FinalNormal

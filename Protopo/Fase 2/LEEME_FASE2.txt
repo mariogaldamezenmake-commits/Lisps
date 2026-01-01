@@ -1,0 +1,18 @@
+GUIA DE USO: FASE 2 (CODIGOS 00)
+================================
+
+Herramienta adaptada para programas que detectan el inicio de línea con "00".
+
+INSTRUCCIONES
+-------------
+1. Arrastra tu fichero TXT de puntos sobre "TopoLineas_00.exe".
+2. Se generará un nuevo archivo "_fase2.txt".
+
+CAMBIOS QUE HACE
+----------------
+- INICIO DE LINEA: Añade "00" al final del código.
+  (Ej: Muro1 -> Muro100)
+- FIN DE LINEA: Elimina la "F" si la tiene.
+  (Ej: Muro1F -> Muro1)
+- PUNTOS INTERMEDIOS: Se quedan igual.
+- PUNTOS SUELTOS: Se quedan igual (sin 00).
