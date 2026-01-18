@@ -1,0 +1,20 @@
+GUIA DE USO: FASE 5 (Ordenación Automática)
+===========================================
+
+Esta versión es la más avanzada.
+
+NOVEDADES
+---------
+1. **ORDENA LOS PUNTOS**: Da igual en qué orden estén en el archivo. El programa:
+   - Agrupa los puntos de cada línea.
+   - Los ordena por su número (1, 2, 3...).
+   - Coloca las líneas en orden cronológico.
+
+2. **SALIDA LIMPIA**: Igual que la Fase 4.
+   - Inicio: Tipo + "00".
+   - Resto: Tipo limpio.
+
+INSTRUCCIONES
+-------------
+1. Arrastra tu fichero TXT de puntos sobre "TopoLineas_00.exe" (carpeta Fase 5).
+2. Se generará un nuevo archivo "_fase5.txt" ORDENADO y PROCESADO.

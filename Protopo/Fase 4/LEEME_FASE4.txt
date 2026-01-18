@@ -1,0 +1,23 @@
+GUIA DE USO: FASE 4 (Definitiva)
+================================
+
+Esta versión genera la salida LIMPIA que necesitas para tu programa.
+
+INSTRUCCIONES
+-------------
+1. Arrastra tu fichero TXT de puntos sobre "TopoLineas_00.exe".
+2. Se generará un nuevo archivo "_fase4.txt" listo para importar.
+
+CAMBIOS QUE HACE
+----------------
+- INICIO DE LINEA: Pone el TIPO + "00".
+- RESTO DE PUNTOS: Pone solo el TIPO (limpio).
+- Elimina totalmente los "&1", "&2", "&3"...
+- Elimina totalmente las "F".
+
+EJEMPLO
+-------
+Entrada: "59&1" (Inicio)  -> Salida: "5900"
+Entrada: "59&1" (Sigue)   -> Salida: "59"
+Entrada: "59&1F" (Fin)    -> Salida: "59"
+Entrada: "99" (Suelto)    -> Salida: "99"
