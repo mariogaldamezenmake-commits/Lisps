@@ -1,6 +1,14 @@
 GUIA DE USO: FASE 6 (Versión Definitiva)
 ========================================
 
+INSTRUCCIONES
+-------------
+1. Copia `TopoLineas_00.exe` (Carpeta Fase 6) donde tengas tus datos.
+2. Arrastra tu fichero de puntos `.txt` o `.csv` sobre el icono del programa.
+3. Se creará un archivo nuevo `_fase6.txt` con todo procesado.
+
+______________________________________________________________________________________________________________________________
+
 Esta herramienta procesa levantamientos topográficos complejos, agrupando líneas automáticamente y generando códigos limpios.
 
 CARACTERÍSTICAS
@@ -19,8 +27,4 @@ CARACTERÍSTICAS
    - Atributos (@): Se conservan pero cambiando `@` por espacio (Ej: `@AS` -> ` AS`).
    - Fin de línea: Elimina `&Contador` y la `F` antigua. Si hay `@F`, queda como ` F`.
 
-INSTRUCCIONES
--------------
-1. Copia `TopoLineas_00.exe` (Carpeta Fase 6) donde tengas tus datos.
-2. Arrastra tu fichero de puntos `.txt` o `.csv` sobre el icono del programa.
-3. Se creará un archivo nuevo `_fase6.txt` con todo procesado.
+
