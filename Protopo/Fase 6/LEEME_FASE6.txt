@@ -1,0 +1,26 @@
+GUIA DE USO: FASE 6 (Versión Definitiva)
+========================================
+
+Esta herramienta procesa levantamientos topográficos complejos, agrupando líneas automáticamente y generando códigos limpios.
+
+CARACTERÍSTICAS
+---------------
+1. **AGRUPACIÓN INTELIGENTE**:
+   - Detecta líneas por su código (Ej: "59&1").
+   - Ignora sufijos con "@" para agrupar (Ej: "59&1" y "59&1@AS" van juntos).
+
+2. **ORDENACIÓN AUTOMÁTICA**:
+   - Lee todo el archivo y ordena los puntos numéricamente dentro de cada línea.
+   - Ordena las líneas cronológicamente según su primer punto.
+
+3. **LIMPIEZA DE CÓDIGOS**:
+   - Inicio de línea: `Tipo` + `00` (Ej: `59` -> `5900`).
+   - Resto de línea: `Tipo` limpio.
+   - Atributos (@): Se conservan pero cambiando `@` por espacio (Ej: `@AS` -> ` AS`).
+   - Fin de línea: Elimina `&Contador` y la `F` antigua. Si hay `@F`, queda como ` F`.
+
+INSTRUCCIONES
+-------------
+1. Copia `TopoLineas_00.exe` (Carpeta Fase 6) donde tengas tus datos.
+2. Arrastra tu fichero de puntos `.txt` o `.csv` sobre el icono del programa.
+3. Se creará un archivo nuevo `_fase6.txt` con todo procesado.
