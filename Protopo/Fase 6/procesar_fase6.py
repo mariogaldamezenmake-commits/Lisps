@@ -192,11 +192,11 @@ if __name__ == "__main__":
         ruta_entrada = sys.argv[1]
         folder = os.path.dirname(ruta_entrada)
         nombre_base = os.path.splitext(os.path.basename(ruta_entrada))[0]
-        ruta_salida = os.path.join(folder, f"{nombre_base}_fase6.txt")
+        ruta_salida = os.path.join(folder, f"{nombre_base}_00.txt")
         procesar_fase6(ruta_entrada, ruta_salida)
     else:
         entrada = "entrada_fase6.txt"
-        salida = "entrada_fase6_fase6.txt"
+        salida = "entrada_fase6_00.txt"
         if os.path.exists(entrada):
             procesar_fase6(entrada, salida)
         else:

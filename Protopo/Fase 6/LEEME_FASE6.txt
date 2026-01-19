@@ -5,7 +5,7 @@ INSTRUCCIONES
 -------------
 1. Copia `TopoLineas_00.exe` (Carpeta Fase 6) donde tengas tus datos.
 2. Arrastra tu fichero de puntos `.txt` o `.csv` sobre el icono del programa.
-3. Se creará un archivo nuevo `_fase6.txt` con todo procesado.
+3. Se creará un archivo nuevo `_00.txt` con todo procesado.
 
 ______________________________________________________________________________________________________________________________
 
