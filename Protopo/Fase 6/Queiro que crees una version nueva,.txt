@@ -1,0 +1,86 @@
+Queiro que crees una version nueva, una fase 7.
+
+Queiro que lo primero que haga el programa después de separar por comas sea detectar si se trata de un punto o de una línea.
+	Mirando si en la última columna hay un '&' si hay un '&'w  se va a tratar de una línea y sino de un punto.
+
+En el caso de que haya 
+
+Luego queiro que salgan los puntos, primero ordenados de menor a mayor y luego alfabeticamente en el caso de que haya un punto definido con una letra (este caso sería que en la ultima columna haya una letra o dos o una palabra....) y luego carateres especiales en el caso de que haya un punto definido con un carater especial (me da igual el orden de los caracteres especiales así que se ordenan según vayan apareciendo)
+
+veo que hay un problema relacionado con los atributos, quiero que se distingan dos tipos de atributos (entiendo que el atributo es todo lo que vaya despues del 1er @ en el caso de que haya 1 o varios @ solo manda el primer @) atributo F que indica final de línea y cualquier otro tipo de atributo que lo ingora y en el ultimo paso cambiaría el @ por un espacio. 
+
+
+
+Hay que hacer la versión 7 porque el programa no hace lo que yo queiro que haga.
+
+Ejemplo de código en la última columna (222&7@F)
+
+222 - tipo (todo lo que esté antes del & que en un punto que no pertenece a una línea (grupo A) no tendría &)
+7 - contador
+F - atributo
+222&7 - base
+@F - sufijo
+&7@F - bloque
+
+Quiero que lo primero, lea todo el fichero y lo guarde en su memoria.
+
+Luego quiero que parsee las columnas para que se fije solo en la última columna de cada fila y los datos se separen en dos grandes grupos, en puntos que no pertenecen a línas (que no tengan tipo de línea) y en puntos que pertenecen a líneas, eso lo tiene que saber hacer ya que si en el código hay un & quiere decir que ese punto pertenece a una línea, si no tiene clasificarlo como punto llamemoslo grupo A y B respectivamente.
+
+Una vez clasificados en esos grupos quiero que se centre en el grupo B en el que quiero que se agrupen los puntos segun el tipo de línea, en cajas tipo de línea. 
+
+Manteniendo el orden de los puntos en la medida de lo posible (si se toman tres puntos de tipo de línea BBCC, luego dos puntos de tipo de línea 2 luego dos de tipo BBC y luego otro de tipo 2 que al agruparse se agrupen los BBC juntos y los 2 juntos pero que dentro de cada tipo de linea el 1er punto que se tomo de tipo BBC no se sea el primer punto, es decir que se mantenga el orden dentro de cada tipo, básicamente que un punto que se haya tomado antes no puede estar después de otro que se ha tomado de forma posterior de un mismo tipo de línea)
+
+
+Quiero que se ordenen las cajas tipo una con respecto de otra según el tipo de menor a mayor número luego si hay tipos con letras, que se ordenen de forma alfabética y luego el resto.
+
+luego hay que ordenar las cajas en subcajas según el contador ya que todas las líneas tipo xx se diferencian entre una y otra según el contador (que es el número que hay después de &). en este momento ignora si hay una @ o lo que haya después de la @ (atributo)
+
+Una vez ordenadas las subcajas tiene que detectar el inicio de cada línea (una línea se diferencia de otra línea de su mismo tipo porque tienen distinto contador, lo que las hace dos líneas distintas). pueden haber sufijos de distintos tipos por ahora solo hay que centrarse en un sufijo que sea @F que quiere decir que cierra una linea tipo con un determinado contador por ejemplo la línea número 2 tipo xx que sería la segunda línea que se hace de tipo xx y ese punto que tiene al final @F es el último punto que se ha tomado y que se va a tomar de ese tipo de línea con lo que en campo o ya no se van a tomar mas puntos de ese tipo de línea con ese contador o se van a tomar mas puntos de ese tipo pero con el contador anterior +1 para empezar otra línea. y lo que quiero que haga el programa es que borre los bloques de ese tipo de línea con ese contador y que al primer punto de esa línea le ponga después del tipo 00. ya que el programa al que se le meterá el fichero de salida de TopoLineas_00 reconoce que empieza una línea nueva con tipo00.
+
+
+
+_______________________________________________________
+
+Antes de empezar a hacer cosas te comento lo que tengo en la cabeza para que me digas si entiendes lo que quiero explicar para ver que funionaba mal antes y que podamos hacer la fase bien.
+
+
+Hay que hacer la fase 7 porque el programa no hace lo que yo queiro que haga.
+
+Ejemplo de código en la última columna (222&7@F)
+
+222 - tipo (todo lo que esté antes del & (un punto que no pertenece a una línea (grupo A) no tendría & ni nada despues del & pero si que tendría un tipo))
+7 - contador (todo lo que haya entre el & y el @)
+F - atributo (todo lo que vaya después de @)
+222&7 - base (todo lo que haya delante del @)
+@F - sufijo (todo lo que hay despues de @ incluyendo el @)
+&7@F - bloque (todo lo que hay despues del & incluyendo el &)
+
+Quiero que lo primero, lea todo el fichero.
+
+Luego quiero que se fije solo en la última columna de cada fila y quiero que los datos se separen en dos grandes grupos, en puntos que no pertenecen a líneas y en puntos que pertenecen a líneas, eso lo tiene que saber hacer ya que si en el código hay un & quiere decir que ese punto pertenece a una línea, si no tiene & hay que clasificarlo como punto (un punto que no pertenece a un a línea no tiene base, un punto que tiene base pertenece a una línea) llamemoslos grupo A (puntos que no pertenecen a línea) y grupo B (puntos que pertenecen a línea). 
+
+Quiero que en el fichero de salida aparezca primero todo el grupo B y luego todo el grupo A.
+
+Una vez se tengan esos grupos diferenciados.
+
+En el grupo A quiero que los puntos se ordenen según el tipo de punto, primero que aparezcan ordenados los puntos de forma numérica de menor a mayor tipo, luego los que sean de tipo letra que se ordenen de forma alfabética y luego el resto.
+
+Luego el grupo B en el que lo primero que quiero es que se agrupen los puntos según el tipo de línea, en cajas tipo de línea. 
+
+Manteniendo el orden de los puntos en la medida de lo posible (si se toman tres puntos de tipo de línea BBCC, luego dos puntos de tipo de línea 2 luego dos de tipo BBCC y luego otro de tipo 2 que al agruparse se agrupen los tipo BBCC juntos y los tipo 2 juntos (irían primero agrupados los de tipo 2 y luego irian los de tipo BBCC) pero que dentro de cada tipo de linea el 1er punto que se tomo de tipo BBCC tiene que  ser el primer punto de tipo BBCC,  el segundo punto que se tomo de tipo BBCC tiene que ir seguido del primer punto que se tomó de tipo BBCC, es decir que se mantenga el orden dentro de cada tipo, básicamente que un punto que se haya tomado antes no puede estar después de otro que se ha tomado de forma posterior de un mismo tipo de línea por ahora).
+
+
+En este etapa quiero que se ordenen las cajas tipo de línea una con respecto de otra según el tipo de menor a mayor número luego si hay tipos con letras, que se ordenen de forma alfabética y luego el resto.
+
+luego hay que ordenar esas cajas en subcajas según el contador ya que todas las líneas tipo xx se diferencian entre una y otra según el contador (que es el número que hay después de &)(que lo que quiere decir es que son líneas distintas pero del mismo tipo). en este momento ignora si hay una @ y lo que haya después de la @ (atributo) si lo hay.
+
+Una vez ordenadas las subcajas tiene que detectar el inicio de cada línea (una línea se diferencia de otra línea de su mismo tipo porque tienen distinto contador, lo que las hace dos líneas distintas). pueden haber sufijos de distintos tipos por ahora solo hay que centrarse en un sufijo que sea @F que quiere decir que cierra una linea tipo con un determinado contador por ejemplo la línea número 2 tipo xx (que sería la línea que contiene a los puntos de ese tipo con ese contador) que sería la segunda línea que se hace de tipo xx y el ultimo punto de la línea xx con contador 2 tiene al final el sufijo @F, es el último punto que se ha tomado y que se va a tomar de ese tipo de línea con ese contador con lo que en campo o ya no se van a tomar mas puntos de ese tipo de línea con ese contador o se van a tomar mas puntos de ese tipo pero con el contador +1 para empezar otra línea. lo que quiero que haga el programa en este punto es que borre los bloques de ese tipo de línea con ese contador y que al primer punto de esa línea le ponga después del tipo 00. ya que el programa al que se le meterá el fichero de salida de TopoLineas_00 reconoce que empieza una línea nueva con tipo00.
+
+
+
+
+
+
+
+
+

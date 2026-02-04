@@ -1,0 +1,35 @@
+GUIA DE USO: FASE 7
+===================
+
+INSTRUCCIONES
+-------------
+1. Copia `TopoLineas_07.exe` donde tengas tus datos.
+2. Arrastra tu archivo de datos sobre el ejecutable o haz doble clic (te pedirá el nombre si no lo arrastras).
+3. Se generará un archivo `_fase7.txt`.
+
+CAMBIOS QUE REALIZA
+-------------------
+1. **Separación Estricta**:
+   - Primero aparecen TODAS las Líneas (Grupo B).
+   - Después aparecen TODOS los Puntos sueltos (Grupo A).
+
+2. **Ordenación**:
+   - **Líneas**: Se ordenan por Tipo:
+     - Primero Numéricos (1, 2, 10...) de menor a mayor.
+     - Luego Alfabéticos (A, Muro, Z...) alfabéticamente.
+   - **Dentro de cada Tipo de Línea**:
+     - Se agrupan por Contador (&1, &2, &10...).
+     - Se ordenan numéricamente (el contador 2 va antes que el 10).
+
+3. **Limpieza de Códigos (Solo Líneas)**:
+   - Se elimina todo el "bloque" a partir del `&` (incluyendo contador y atributos como `@F`).
+   - Al **primer punto** de cada línea nueva (combinación única Tipo+Contador) se le añade `00` al Tipo.
+   - El resto de puntos de esa línea se quedan solo con el Tipo limpio.
+   
+   Ejemplo:
+   - `Muro&1` -> `Muro00` (1er punto)
+   - `Muro&1@F` -> `Muro` (siguientes)
+
+4. **Puntos Sueltos (Grupo A)**:
+   - Se mantienen tal cual.
+   - Se ordenan por Tipo (Números primero, luego Letras).
